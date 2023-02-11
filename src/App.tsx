@@ -1,6 +1,7 @@
 
 import { ChangeEvent, useState } from 'react'
 import { GlobalStyle, MarqueeContainer, Marquee, SetupContainer, Form, Input, Button, FlexRow, ExampleContainer } from './styles'
+import './assets/fonts/stylesheet.css'
 
 export type TSettings = {
   text: string,
@@ -19,7 +20,7 @@ const App = () => {
     speed: 5,
     color: 'white',
     background: 'gray',
-    fontSize: 30
+    fontSize: 200
   })
   const handleChangePage = () => {
     setPage('screen')
@@ -36,7 +37,6 @@ const App = () => {
         <SetupContainer>
           <ExampleContainer background={settings.background}        >
             <Marquee
-              isExample
               fontSize={settings.fontSize}
               text={settings.text}
               speed={settings.speed}
@@ -60,7 +60,7 @@ const App = () => {
             </FlexRow>
             <FlexRow>
               <label>
-                Скорость движения
+                Скорость выполнения анимации
               </label>
               <select value={settings.speed} onChange={(value) => handleChangeSettings(value, 'speed')}>
                 {seconds.map((item) => (

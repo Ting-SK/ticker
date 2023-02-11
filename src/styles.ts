@@ -10,19 +10,10 @@ export const GlobalStyle = createGlobalStyle`
 `
 const move = keyframes`
     0% {
-        transform: translateX(100vw)
+        transform: translateX(150vw)
     }
     100% {
-        transform: translateX(-50vw)
-    }
-`
-
-const moveExample = keyframes`
-    0% {
-        transform: translateX(100vw)
-    }
-    100% {
-        transform: translateX(-50vw)
+        transform: translateX(-150vw)
     }
 `
 
@@ -33,22 +24,22 @@ export const MarqueeContainer = styled.div<{ background: string }>`
     height:100vh;
     background: ${({ background }) => background};
     overflow: hidden;
+
 `
 export const Marquee = styled.p<{
     text: string,
     speed: number,
     color: string,
     fontSize: number
-    isExample?: boolean
 }>`
+    font-family: 'freedesign001dotdotregular' !important;
     font-size: ${({ fontSize }) => fontSize}px;
     line-height: 1.3;
     font-family: sans-serif;
     padding: 24px 0;
     color: ${({ color }) => color};
     white-space: nowrap;
-    animation: ${({ isExample }) => isExample ? moveExample : move} ${({ speed }) => speed}s infinite linear;
-
+    animation: ${move} ${({ speed }) => speed}s infinite linear;
     &:after{
       content: ${({ text }) => text};
     }
